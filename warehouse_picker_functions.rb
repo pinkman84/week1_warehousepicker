@@ -1,6 +1,5 @@
 WAREHOUSE = {
-
-  "bays" => {
+ 
     a1: 'needle',
     a2: "stop sign",
     a3: 'blouse',
@@ -33,11 +32,52 @@ WAREHOUSE = {
     c8: 'candy wrapper',
     c9: 'shoe lace',
     c10: 'leg warmers'
-  }
+  
 
 }
 
-def item_at_bay(bay)
-  puts WAREHOUSE["bays"][bay]
+
+
+# def item_at_bay(bay)
+#   puts WAREHOUSE["bays"][bay]
+# end
+
+# def get_item_at_location(value)
+
+#   puts "What shelf location do you want to check? ("
+#   value = gets.chomp
+
+# end
+
+
+
+def item_at_bay(location)
+  return WAREHOUSE[location]
 end
 
+def location_of_item(product)
+  return WAREHOUSE.key(product)
+end
+
+
+loop do
+  puts "what location are you interested in? (a1-a10, b1-b10 or c1-c10)?: (if unknown please press q to move on)"
+  location = gets.chomp.to_sym
+  print item_at_bay(location)
+
+  if location == 'q' 
+  break
+
+end
+
+loop do
+  puts "do you know what item you require? enter for location"
+  product = gets.chomp
+
+  puts "Your item is at #{location}"
+
+  if product == false 
+    puts "out of stock, please choose another product"
+  end
+end
+end
