@@ -13,4 +13,5 @@ class TestWarehouse < Minitest::Test
     assert_equal(:b5, location)
   end
 
+
 end

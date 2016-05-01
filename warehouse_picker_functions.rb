@@ -64,21 +64,6 @@ def location_of_item(product)
   return WAREHOUSE.key(product)
 end
 
-# def looking_for_item
-
-#   print "\nwhat location(s) are you interested in? (a1-a10, b1-b10 or c1-c10)?: (if unknown please press q to move on) "
-#   location = gets.chomp.to_sym
-#   print item_at_bay(location)
-
-# end
-
-# def looking_for_bay
-
-#   print "\ndo you know what item(s) you require? enter for location: "
-#   product = gets.chomp
-#   print location_of_item(product)
-# end
-
 def multi_location_search
   loc_arr = []
   i = 0
