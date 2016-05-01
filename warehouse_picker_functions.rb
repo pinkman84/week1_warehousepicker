@@ -1,6 +1,6 @@
 WAREHOUSE = {
     
-    a10: 'rubber band',
+    a10: 'rubber band', 
     a9: 'glow stick',
     a8: 'model car',
     a7: 'bookmark',
@@ -10,7 +10,6 @@ WAREHOUSE = {
     a3: 'blouse',
     a2: "stop sign",
     a1: 'needle',
-    
     c1: 'rusty nail',
     c2: 'drill press',
     c3: 'chalk',
@@ -21,7 +20,6 @@ WAREHOUSE = {
     c8: 'candy wrapper',
     c9: 'shoe lace',
     c10: 'leg warmers',
-    
     b1: 'tyre swing',
     b2: 'sharpie',
     b3: 'picture frame',
@@ -35,7 +33,9 @@ WAREHOUSE = {
 
 }
 
-
+# print WAREHOUSE.keys.index(:c5 ) = 14
+# print WAREHOUSE.values.index('nail filer') = 24
+# print WAREHOUSE.values = an array of all the values
 
 
 
@@ -49,7 +49,7 @@ def intro()
     if response == 1 
       multi_location_search
     elsif response == 2
-      mu
+      multi_item_search
 
     end
 end
@@ -81,6 +81,7 @@ end
 
 def multi_location_search
   loc_arr = []
+  length = WAREHOUSE.values
   i = 0
   print "how many locations do you want to search?: "
   locations = gets.chomp.to_i
@@ -92,6 +93,11 @@ def multi_location_search
     i += 1
   end
   print loc_arr
+  x = loc_arr.min
+  y = loc_arr.max
+  # b = length.slice(loc_arr.min.to_s .. loc_arr.max.to_s)
+  # print "\nyour items are #{b} bays away from each other."
+  print length.index.slice(x .. y)
 end
 
 def multi_item_search
@@ -107,9 +113,16 @@ def multi_item_search
     i += 1
   end
   print it_arr
+
+end
+
+def check_array_length(array)
+  length =[]
+  WAREHOUSE.keys
+  length << array
+  
 end
 
 
 intro
-
-
+# print check_array_length
