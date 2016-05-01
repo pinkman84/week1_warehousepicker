@@ -81,7 +81,6 @@ end
 
 def multi_location_search
   loc_arr = []
-  length = WAREHOUSE.values
   i = 0
   print "how many locations do you want to search?: "
   locations = gets.chomp.to_i
@@ -93,11 +92,7 @@ def multi_location_search
     i += 1
   end
   print loc_arr
-  x = loc_arr.min
-  y = loc_arr.max
-  # b = length.slice(loc_arr.min.to_s .. loc_arr.max.to_s)
-  # print "\nyour items are #{b} bays away from each other."
-  print length.index.slice(x .. y)
+  print "\nyour items are #{distance_apart_bays(loc_arr)} bays apart"
 end
 
 def multi_item_search
@@ -113,16 +108,29 @@ def multi_item_search
     i += 1
   end
   print it_arr
-
+  print "\nyour locations are #{distance_apart_items(it_arr)} bays apart"
 end
 
-def check_array_length(array)
-  length =[]
-  WAREHOUSE.keys
-  length << array
-  
+def distance_apart_bays(array)
+  values_array = WAREHOUSE.values
+  distance_checker = []
+  for bay in array
+    distance_checker << values_array.index(bay)
+  end
+  return x = distance_checker.max - distance_checker.min
 end
+
+def distance_apart_items(array)
+  keys_array = WAREHOUSE.keys
+  distance_checker = []
+  for bay in array
+    distance_checker << keys_array.index(bay)
+  end
+  return x = distance_checker.max - distance_checker.min
+end
+
+
 
 
 intro
-# print check_array_length
+
